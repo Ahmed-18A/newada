@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Home"
+        android:id="@+id/mnu_home"
+        android:orderInCategory="10"
+        />
+    <item
+        android:title="Dash"
+        android:id="@+id/mnu_out"
+        android:orderInCategory="40"
+        />
+    <item
+        android:title="Log in"
+        android:id="@+id/mnu_in"
+        android:orderInCategory="20"
+        />
+
+</menu>
