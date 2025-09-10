@@ -15,37 +15,51 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:textSize="30sp"
+            android:layout_marginTop="60dp"
+            android:textSize="50sp"
             android:text="Dash"
             android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/da_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="50sp"
+            android:text=""
+            android:layout_gravity="center_horizontal"/>
         <LinearLayout
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="35dp"
             android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:id="@+id/exit"
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:text="Exit"
+                android:textSize="25sp"
+                android:layout_marginRight="20dp"/>
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:id="@+id/log_out"
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:text="Log out"
+                android:textSize="25sp"/>
 
         </LinearLayout>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7">
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
+            app:itemIconSize="25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu" />
     </LinearLayout>
-
 </LinearLayout>

@@ -3,16 +3,19 @@
     <item
         android:title="Home"
         android:id="@+id/mnu_home"
+        android:icon="@drawable/home"
         android:orderInCategory="10"
         />
     <item
         android:title="Dash"
-        android:id="@+id/mnu_out"
+        android:id="@+id/mnu_dash"
+        android:icon="@drawable/ibutton"
         android:orderInCategory="40"
         />
     <item
         android:title="Log in"
         android:id="@+id/mnu_in"
+        android:icon="@drawable/login"
         android:orderInCategory="20"
         />
 

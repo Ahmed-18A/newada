@@ -1,6 +1,11 @@
 package com.example.men2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +18,28 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        EditText name = findViewById(R.id.name);
+        EditText pass = findViewById(R.id.pass);
+        Button log = findViewById(R.id.log);
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = name.getText().toString();
+                String password = pass.getText().toString();
+                if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(MainActivity2.this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (username.equals("admin") && password.equals("admin")) {
+                        Toast.makeText(MainActivity2.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                        intent.putExtra("name", username);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(MainActivity2.this, "wrong info", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
         });
     }
 }
