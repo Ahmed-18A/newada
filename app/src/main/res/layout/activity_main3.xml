@@ -20,12 +20,13 @@
             android:text="Dash"
             android:layout_gravity="center_horizontal"/>
         <TextView
+            android:gravity="center_horizontal"
             android:id="@+id/da_name"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:textSize="50sp"
-            android:text=""
+            android:text="welcome user"
             android:layout_gravity="center_horizontal"/>
         <LinearLayout
             android:layout_marginTop="35dp"

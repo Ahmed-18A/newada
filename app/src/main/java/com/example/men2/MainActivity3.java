@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity3 extends AppCompatActivity {
 
     @Override
@@ -37,6 +39,25 @@ public class MainActivity3 extends AppCompatActivity {
                 name.setText("welcome user");
                 Toast.makeText(MainActivity3.this, "logged out successfully", Toast.LENGTH_SHORT).show();
             }
+        });
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            Intent intent2 = null;
+
+            if (id == R.id.mnu_home) {
+                intent2 = new Intent(this, MainActivity.class);
+            } else if (id == R.id.mnu_in) {
+                intent2 = new Intent(this, MainActivity2.class);
+            } else if (id == R.id.mnu_dash) {
+                intent2 = new Intent(this, MainActivity3.class);
+            }
+            if (intent2 != null) {
+                startActivity(intent2);
+                return true;
+            }
+            return false;
         });
     }
 }
