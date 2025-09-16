@@ -40,7 +40,6 @@ public class MainActivity2 extends AppCompatActivity {
                     edetor.putString("email",username);
                     edetor.putString("pass",password);
                     edetor.apply();
-
                 }
             }
         });
