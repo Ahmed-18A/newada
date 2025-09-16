@@ -22,6 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        SharedPreferences share=getSharedPreferences("UserPrefs",MODE_PRIVATE);
         EditText name = findViewById(R.id.name);
         EditText pass = findViewById(R.id.pass);
         Button sign=findViewById(R.id.sign);
@@ -30,13 +31,11 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 String username = name.getText().toString().trim();
                 String password = pass.getText().toString().trim();
+                SharedPreferences.Editor edetor = share.edit();
                 if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(MainActivity2.this, "Please fill in both fields", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    SharedPreferences share=getSharedPreferences("UserPrefs",MODE_PRIVATE);
-                    SharedPreferences.Editor edetor = share.edit();
-
                     edetor.putString("email",username);
                     edetor.putString("pass",password);
                     edetor.apply();
@@ -47,7 +46,6 @@ public class MainActivity2 extends AppCompatActivity {
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences share=getSharedPreferences("UserPrefs",MODE_PRIVATE);
                 String saved_username = share.getString("email",null);
                 String saved_password = share.getString("pass",null);
 
@@ -58,9 +56,12 @@ public class MainActivity2 extends AppCompatActivity {
                 } else {
                     if (saved_username.equals(username)&&saved_password.equals(password)) {
                         Toast.makeText(MainActivity2.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = share.edit();
+                        editor.putBoolean("isLoggedIn", true);
                         Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
                         intent.putExtra("name", username);
                         startActivity(intent);
+                        finish();
                     }
                     else {
                         Toast.makeText(MainActivity2.this, "sign up first", Toast.LENGTH_SHORT).show();
