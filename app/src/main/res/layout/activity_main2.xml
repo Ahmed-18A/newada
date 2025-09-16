@@ -39,14 +39,27 @@
             android:hint="password"
             android:inputType="textPassword"
             android:textSize="25sp" />
-
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
             <Button
                 android:id="@+id/log"
                 android:layout_width="150dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:text="log in"
+                android:layout_marginRight="20dp"
                 android:textSize="28sp" />
+                <Button
+                android:id="@+id/sign"
+                android:layout_width="150dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="sign up"
+                android:textSize="28sp" />
+            </LinearLayout>
         </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
